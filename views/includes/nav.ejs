@@ -1,0 +1,30 @@
+<!-- Navbar with Burger Menu -->
+<nav class="bg-indigo-900 text-white shadow-md sticky top-0 z-10">
+  <div class="container mx-auto flex justify-between items-center px-6 py-4">
+    <a href="/" class="text-3xl font-extrabold">Hotel <span class="text-yellow-400">Luxury</span></a>
+
+    <!-- Burger Menu for mobile -->
+    <div class="lg:hidden flex items-center">
+      <button id="burgerMenu" class="text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation links for desktop -->
+    <div class="hidden lg:flex space-x-8 text-lg font-semibold">
+      <a href="/" class="hover:text-yellow-300 transition duration-300">Home</a>
+      <a href="/reservation" class="hover:text-yellow-300 transition duration-300">Make Reservation</a>
+      <a href="/confirmation" class="hover:text-yellow-300 transition duration-300">Reservation Details</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu (Hidden by default) -->
+<div id="mobileMenu"
+  class="lg:hidden bg-indigo-900 text-white px-6 py-4 absolute top-20 left-0 right-0 shadow-md hidden">
+  <a href="/" class="block py-2">Home</a>
+  <a href="/reservation" class="block py-2">Make Reservation</a>
+  <a href="/confirmation" class="block py-2">Reservation Details</a>
+</div>

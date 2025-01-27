@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+   /* Darker color for contrast */
+  }
+  
+ 
+  body {
+    font-family: 'Roboto', sans-serif;
+    
+  }
+  
+  

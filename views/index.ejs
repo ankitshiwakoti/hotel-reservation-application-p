@@ -1,0 +1,72 @@
+<%- include ('includes/header.ejs') %>
+
+  <body class="bg-gray-100 text-gray-800">
+    <%- include ('includes/nav.ejs') %>
+
+
+
+      <section class="relative bg-cover bg-center h-screen"
+        style="background-image: url('https://images.unsplash.com/photo-1624003974266-7cdbf877ec00?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        <div class="absolute inset-0 bg-black opacity-10 pointer-events-none"></div>
+        <div class="container mx-auto text-center text-white py-48 px-4">
+          <h1
+            class="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-800 via-pink-800 to-indigo-600 text-transparent bg-clip-text animate__animated animate__fadeIn animate__delay-1s">
+            Welcome to Hotel Luxury
+          </h1>
+          <p class="text-xl  mb-8 animate__animated animate__fadeIn animate__delay-2s">An extraordinary experience for
+            those who appreciate luxury and elegance.</p>
+          <a href="/reservation"
+            class="inline-block bg-yellow-400 text-indigo-900 hover:bg-yellow-300 hover:text-indigo-800 py-3 px-10 rounded-lg text-lg font-medium transition duration-300 z-20">Make
+            a Reservation</a>
+        </div>
+      </section>
+
+
+
+      <section class="py-24 bg-white">
+        <div class="container mx-auto text-center">
+          <h2 class="text-3xl font-semibold text-indigo-900 mb-12">Our Featured Rooms</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="bg-gray-100 p-6 rounded-xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1673014202228-65e0e9064a34?q=80&w=1810&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Room 1" class="w-full h-48 object-cover rounded-md mb-6">
+              <h3 class="text-xl font-semibold text-indigo-900 mb-2">Deluxe Suite</h3>
+              <p class="text-gray-600 mb-4">A spacious suite with modern amenities, perfect for relaxation.</p>
+              <p class="text-lg text-yellow-500 font-semibold">$250 / night</p>
+            </div>
+
+            <div class="bg-gray-100 p-6 rounded-xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
+              <img
+                src="https://images.unsplash.com/photo-1515362778563-6a8d0e44bc0b?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Room 2" class="w-full h-48 object-fill rounded-md mb-6">
+              <h3 class="text-xl font-semibold text-indigo-900 mb-2">Ocean View Room</h3>
+              <p class="text-gray-600 mb-4">Enjoy breathtaking views of the ocean from your private balcony.</p>
+              <p class="text-lg text-yellow-500 font-semibold">$300 / night</p>
+            </div>
+
+            <div class="bg-gray-100 p-6 rounded-xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
+              <img
+                src="https://images.unsplash.com/photo-1549638441-b787d2e11f14?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Room 3" class="w-full h-48 object-fill rounded-md mb-6">
+              <h3 class="text-xl font-semibold text-indigo-900 mb-2">Royal Suite</h3>
+              <p class="text-gray-600 mb-4">The ultimate luxury suite with all the amenities you could ask for.</p>
+              <p class="text-lg text-yellow-500 font-semibold">$500 / night</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="py-24 bg-indigo-900 text-white text-center">
+        <div class="container mx-auto">
+          <h2 class="text-3xl font-semibold mb-6">Ready to Book Your Stay?</h2>
+          <p class="text-lg mb-6">Our rooms are filling up fast, so make your reservation today to secure your spot!</p>
+          <a href="/reservation"
+            class="inline-block bg-yellow-400 text-indigo-900 hover:bg-yellow-300 hover:text-indigo-800 py-3 px-10 rounded-lg text-lg font-medium transition duration-300">Make
+            a Reservation</a>
+        </div>
+      </section>
+
+      <%- include ('includes/end.ejs') %>

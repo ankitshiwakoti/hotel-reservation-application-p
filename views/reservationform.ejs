@@ -1,0 +1,87 @@
+<%- include ('includes/header.ejs') %>
+
+    <body>
+        <%- include ('includes/nav.ejs') %>
+            <main class="min-h-screen flex items-center justify-center bg-cover bg-center"
+                style="background-image: url('https://images.unsplash.com/photo-1624003974266-7cdbf877ec00?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                <div class="w-full bg-opacity-75 bg-gray-800 p-8 rounded-lg shadow-lg max-w-xl">
+                    <h1 class="text-4xl font-semibold text-center text-white mb-6">Hotel Reservation Form</h1>
+                    <form class="space-y-6" method="POST" action="/reservation">
+                        <div class="space-y-2">
+                            <label for="name" class="block text-sm font-medium text-white">Name</label>
+                            <input type="text" name="name" id="name" required
+                                class="w-full p-3 bg-gray-500 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="email" class="block text-sm font-medium text-white">Email</label>
+                            <input type="email" name="email" id="email" required
+                                class="w-full p-3  bg-gray-500 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="roomType" class="block text-sm font-medium text-white">Room Type</label>
+                            <select name="roomType" id="roomType" required
+                                class="w-full p-3 bg-gray-600 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <!-- Room options will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="checkInDate" class="block text-sm font-medium text-white">Check-in Date</label>
+                            <input type="date" name="checkInDate" id="checkInDate"
+                                min="<%= new Date().toISOString().split('T')[0] %>" required
+                                class="w-full p-3 bg-gray-500 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="checkOutDate" class="block text-sm font-medium text-white">Check-out
+                                Date</label>
+                            <input type="date" name="checkOutDate" id="checkOutDate"
+                                min="<%= new Date().toISOString().split('T')[0] %>" required
+                                class="w-full p-3 bg-gray-500 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition">Submit</button>
+                    </form>
+                </div>
+            </main>
+
+
+            <script>
+
+
+console.log("Fetching data...");  // Log at the beginning of the script
+fetch('http://localhost:3000/api/products')  // Full URL for local development
+    .then(response => response.json())
+    .then(data => {
+        console.log("Fetched data:", data);  // Log the fetched data
+        const roomDropdown = document.getElementById('roomType');
+        data.products.forEach(room => {
+            const option = document.createElement('option');
+            option.value = room.id;
+            option.textContent = room.title;
+            roomDropdown.appendChild(option);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching room data:', error);
+    });
+
+                function validateDates() {
+                    const checkInDate = document.getElementById("checkInDate").value;
+                    const checkOutDate = document.getElementById("checkOutDate").value;
+
+
+                    if (checkOutDate && checkInDate && new Date(checkOutDate) < new Date(checkInDate)) {
+                        alert("Check-out date cannot be before check-in date.");
+                        return false;
+                    }
+                    return true;
+                }
+
+
+                document.querySelector("form").addEventListener("submit", function (event) {
+                    if (!validateDates()) {
+                        event.preventDefault();
+                    }
+                });
+            </script>
+
+            <%- include ('includes/end.ejs') %>
